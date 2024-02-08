@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Manual de usuario</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1042de9b-16b9-407d-9568-6386ad84e6fc" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">👥</span></div><h1 class="page-title">Manual de usuario</h1><p class="page-description"></p></header><div class="page-body"><h1 id="65702729-f9a0-4fd6-bff9-8824003791e6" class=""><mark class="highlight-teal"><strong>DESCARGA MANUAL</strong></mark></h1><p id="bc7addd5-08ba-4d9b-82ee-3f08fd0c5146" class="">Para descargar el manual basta con ir a la ruta: Requisitos y en el apartado ¿Cómo funciona? Allí se descargará el manual de usuario y las funcionalidades del aplicativo.</p><p id="bc80fc91-6c65-4779-9b58-9a5069a91898" class="">
+</p><figure id="3db6057b-0a3c-4c4b-b863-98570f90f7d8" class="image"><a href="Untitled%2028.png"><img style="width:589px" src="Untitled%2028.png"/></a></figure><p id="c734890c-fd23-402c-838a-b978181ffc11" class="">
+</p><h1 id="277bc146-24b0-4995-a942-815ce89eaf7e" class=""><mark class="highlight-teal"><strong>FUNCIONALIDAD</strong></mark></h1><p id="a8f9c8be-74ba-4370-9cec-a808ef9ac24b" class="">El aplicativo basa su comportamiento guiado de los tipos de consultoría seleccionados en la gestión del proyecto, existen 3 procesos. Ingeniería de Requisitos, SQA y SQC.</p><p id="94ba43c1-263e-496e-b57a-faaf05eb3f84" class="">
+</p><h1 id="5c8df27e-0518-45ab-93eb-d771dc72c283" class=""><mark class="highlight-teal"><strong>REQUISITOS</strong></mark></h1><p id="5854bf89-ec29-4416-b3ce-3149e5773c72" class="">Si se selecciona Ingeniería de Requisitos el componente para registrar estaría deshabilitado, pues los Requisitos deben venir creados por parte del proceso Ingeniería de Requisitos.</p><p id="f20722ca-950a-41eb-bf14-1b925253c93b" class="">
+</p><figure id="2aba8174-4827-4f81-9ce2-c6e519f65f3f" class="image"><a href="Untitled%2029.png"><img style="width:555px" src="Untitled%2029.png"/></a></figure><p id="5535c4cb-5569-46c4-b3ea-ce2901b53dcb" class="">Por otro lado, si no se selecciona Ingeniería de Requisitos, deberás registra cada uno de los requisitos del proyecto para poder continuar con el flujo del aplicativo.</p><p id="946c55c8-71a5-4e6f-841d-96f9882b30cd" class="">
+</p><figure id="2fcf0d87-7eba-4a19-9004-dc19a0009667" class="image"><a href="Untitled%2030.png"><img style="width:589px" src="Untitled%2030.png"/></a></figure><p id="b0c3bd0c-10e8-4db9-a77d-af33438d4643" class="">
+</p><p id="eefa7837-ccad-46ff-9d75-0bc8147f0b50" class="">A tener en cuenta: Todos los campos son obligatorios, es decir deben ser diligenciados para poder registrar de forma satisfactoria el requisito, el nombre debe tener una longitud mínima de 10 caracteres, y este debe ser único, es decir no se pueden registrar 2 requisitos con el mismo nombre. Para el tipo de requisito se debe seleccionar según lo necesario.</p><p id="462ab5ee-af95-47ca-969b-09d7a8f8b3ed" class=""><br/>Luego de haber registrado el requisito el aplicativo se re direcciona automáticamente al componente de Consultar.<br/></p><p id="43762fe5-e309-4cd2-97ce-e90f18337af4" class="">
+</p><figure id="f0a4e265-cf81-4416-b29d-99fd65dcdf81" class="image"><a href="Untitled%2031.png"><img style="width:589px" src="Untitled%2031.png"/></a></figure><p id="d6bb0dd1-c25e-48f8-9b24-e7d879ed9d39" class="">
+</p><p id="57fa7336-9c1c-412d-bf0f-0032a5263034" class="">Allí se van a observar todos los requisitos que estén matriculados para el proyecto y se puede consultar los detalles de estos</p><p id="4c57a858-375f-4b83-9916-c39b540d39a6" class="">
+</p><h1 id="4e6a8238-515c-48a6-9f83-30a01b3dfea7" class=""><mark class="highlight-teal"><strong>SQC</strong></mark></h1><p id="909435e8-1d2d-474e-8c9a-7a63f4f9ddca" class="">Si se selecciona el componente SQC solo podrá realizar la calificación de los requisitos que previamente fueron creados</p><p id="bb11967a-c467-44ff-936f-12e299231ec5" class="">
+</p><figure id="939047fd-e26b-4d62-bae7-6cb8c827f93a" class="image"><a href="Untitled%2032.png"><img style="width:589px" src="Untitled%2032.png"/></a></figure><p id="dcf9e020-0699-4bd4-850b-7bd66fa61e83" class="">
+</p><p id="a640110d-c461-499c-aa90-4fc2dbc0e0d1" class="">Luego de ingresar al componente calificar se desplegará varia información, en el lado izquierdo estará la información general del requisito y del lado derecho todo lo correspondiente al tipo de característica, y su respectiva nota</p><p id="230e1bb8-ace5-4be2-ab44-3b9136d9a263" class="">
+</p><figure id="d85db22b-ef7d-445f-b9fa-cf5b3fe88913" class="image"><a href="Untitled%2033.png"><img style="width:589px" src="Untitled%2033.png"/></a></figure><p id="6e0b1df8-b6aa-49bf-9470-bfae0ed1c1b7" class="">
+</p><p id="f25ae349-4949-4acf-be13-60dcd8d72ad0" class="">Al momento de calificar se debe poner el numero deseado en el campo que dice “Nota”<br/>A tener en cuenta: la nota no debe ser menor o igual a cero, ni puede ser mayor a 9, tampoco se permite dejar el campo vacío pues no se realizará la calificación de forma correcta.<br/>Comportamiento: Luego de realizar la calificación en base a dicha nota se puede modificar el nombre de la siguiente manera.<br/>Si la nota es menor o igual a 8, la característica cuenta con un tipo de error. Por otro lado, si la nota es mayor a 8, la característica no tiene ningún tipo de error.<br/>Si la característica tiene o no error cambiara su nombre y descripción<br/></p><p id="f93d9f6d-ffa2-479a-b374-6fcd8e884acb" class=""><br/>Característica sin error o nota perfecta:<br/></p><figure id="b6e87eb2-decf-4874-85e7-6e0506e7b483" class="image"><a href="Untitled%2034.png"><img style="width:589px" src="Untitled%2034.png"/></a></figure><p id="a6624546-a876-473a-8c15-f813c71f241c" class="">
+</p><p id="b940e13a-1f0d-4421-9de5-86923dd6a66c" class="">Característica con error o nota NO perfecta:</p><figure id="a0625f90-c7cb-4232-a133-85461833e39a" class="image"><a href="Untitled%2035.png"><img style="width:589px" src="Untitled%2035.png"/></a></figure><p id="3d219716-074e-4d3f-8b7c-1357b09540f1" class="">
+</p><p id="eb357a32-cd75-480f-96c0-c1a49597d818" class="">Adicional en la parte inferior cuando la característica tiene error se despliega un nuevo componente para calificar el tipo de error de cada característica como se ve en el ejemplo.</p><p id="1836e8c8-1192-4ea8-afbf-148d9ea8ca22" class="">
+</p><figure id="2dcc78d8-4181-4071-bfaf-1d5acc025d0e" class="image"><a href="Untitled%2036.png"><img style="width:589px" src="Untitled%2036.png"/></a></figure><p id="c8318bfd-822f-42cd-94b7-bb38b14b8bce" class="">
+</p><p id="ae5cc370-7e6c-4b30-a67b-47ec276196a0" class="">Para estos casos se debe calificar también el tipo de error, debiéndose cumplir las validaciones anteriormente mencionadas de la nota y las que se mencionan a continuación.<br/>Si una característica tiene error se debe seleccionar MINIMO una de las 3 causas de error (DII,VAR,DDE) y máximo las 3. Si no se cumple dicha condición al momento de calificar la característica nos va a arrojar una advertencia.<br/></p><p id="e9767b38-2c5b-43ac-8d07-8c973a599353" class=""><br/>En este ejemplo se califica con una nota de 1, y 2 tipos de error:<br/></p><figure id="0cb4609f-b821-4381-aac0-f500f39fd414" class="image"><a href="Untitled%2037.png"><img style="width:589px" src="Untitled%2037.png"/></a></figure><p id="a827bd20-9277-49d3-b24f-16befa1d74cf" class="">
+</p><h1 id="f1acc5cb-adf9-4410-a201-b63476c09929" class=""><mark class="highlight-teal"><strong>Advertencias:</strong></mark></h1><p id="acdf216b-22b8-4d15-ae4d-cb42de09680e" class="">Al momento de darle al botón calificar nos pueden salir 2 advertencias. Una por incumplir alguna validación con la nota de la característica y otra por incumplir la validación con el tipo de error</p><p id="20ea8d0e-5853-4a3e-abc0-b7f9d54ea458" class="">
+</p><figure id="9268b9de-f888-4b0d-8292-e4f817ba8c6a" class="image"><a href="Untitled%2038.png"><img style="width:336px" src="Untitled%2038.png"/></a></figure><figure id="b453d710-2869-49db-acbb-94d2dd636c68" class="image"><a href="Untitled%2039.png"><img style="width:382px" src="Untitled%2039.png"/></a></figure><p id="4a9f7288-464b-4288-9f78-5e4d7532fbed" class="">Por ultimo si se cumplen todas las validaciones se realizará la calificación correcta del requisito y este NO se podrá volver a calificar.<br/>Como se observa en el ejemplo un el requisito 1 ya fue calificado y el requisito 100 aún falta por calificar.<br/></p><p id="a2a118ee-2e49-445d-9dcc-f4bfb18dae7c" class="">
+</p><figure id="b919760b-6ecd-4ccf-8440-a98aa7449cb8" class="image"><a href="Untitled%2040.png"><img style="width:589px" src="Untitled%2040.png"/></a></figure><p id="ba8be03a-7d75-4d41-81e4-88c12aaf567a" class="">
+</p><p id="0e598bb1-b3c9-4ec7-b2ee-27b34fbeac95" class="">Luego de haber calificado el requisito se pueden observar los detalles de dicho requisito dándole click en el botón “Detalles”<br/>En dicha pantalla se van a observar la calificación que se le dio a dicho requisito, y junto a eso los cálculos realizados en base a la calificación<br/></p><p id="0e22d323-b2ba-482d-bfe2-3747f96856af" class="">
+</p><figure id="cd1506ae-2250-4b0b-98fc-64493e937388" class="image"><a href="Untitled%2041.png"><img style="width:589px" src="Untitled%2041.png"/></a></figure><p id="94cc5b9c-1c8a-404e-a463-acf7892e64fa" class="">
+</p><p id="8ddf59e3-9ce9-4914-96ea-09ab3c523220" class="">En la parte izquierda observamos que se encuentra el Nivel de adecuación que está compuesto por: puntaje máximo, el puntaje ponderado, el promedio total y el promedio ponderado para este requisito y en la parte de abajo se observa la distribución de error que se compone por el tipo de error que tiene el requisito. Para este ejemplo solo 1 característica tiene tipo error EIE<br/>Al finalizar de calificar todas las características deberás comprobar dichas calificaciones para dar por finalizado el proceso, esto se realiza dando click en “Validar calificación”<br/></p><p id="e3c7ab10-a9aa-4237-b4d7-78f68e25ad7e" class="">
+</p><figure id="c8e67b92-0d1b-41b6-9755-a7607ac91601" class="image"><a href="Untitled%2042.png"><img style="width:575px" src="Untitled%2042.png"/></a></figure><p id="d419bf0e-a8a7-47dd-997a-bf1269e6e4fc" class="">
+</p><p id="7fd0ede9-8470-4b2b-aae5-489563673913" class="">Esto con el fin de poder marcar como finalizado el proceso y así darle continuidad a otro proyecto.</p><p id="c450e51e-bcda-4d8c-9e87-cc5bebabb00a" class="">
+</p><h1 id="675b922a-ee2b-4674-878d-d892557a5695" class=""><mark class="highlight-teal"><strong>SQA</strong></mark></h1><p id="1a701013-1214-4774-815b-afb388234cf1" class="">El proceso de SQA hace referencia a toda la parte informativa de la calificación de cada requisito</p><p id="a3f1c146-d662-4190-b4a1-bacf9dd1cee4" class="">
+</p><figure id="0b9b1ded-aa26-4719-9766-d3f97d262c35" class="image"><a href="Untitled%2043.png"><img style="width:569px" src="Untitled%2043.png"/></a></figure><p id="7ed6acb2-e8f2-43cb-9d29-989283160afd" class="">
+</p><p id="d254e119-a69a-4937-88ab-4a7e482a8db2" class="">Es decir que el proceso de SQA tiene inmerso el proceso de SQC que compone toda la calificación de los requisitos del proyecto. Pero no de forma inversa, es decir que el proceso de SQC NO tiene el componente de informes.<br/>Allí vamos a encontrar 2 informes que se desglosan de la siguiente manera<br/></p><p id="2c4205f9-8cc0-481f-b490-1e92b0c6f0d3" class="">
+</p><figure id="e56f79ad-630a-4ac2-afb6-d24a557ad0b2" class="image"><a href="Untitled%2044.png"><img style="width:589px" src="Untitled%2044.png"/></a></figure><p id="17bca536-8ebf-4eaa-86ad-822546e726cf" class="">
+</p><p id="bc616955-8253-4621-b95f-ed0643ad01b5" class="">Informe 1. Distribución de Error<br/>Informe 2. Nivel de madurez<br/></p><p id="fa18800a-dc99-4cdd-a84b-bac1040a2417" class=""><br/>Para el informe 1 tenemos 3 componentes, El informe General que compone la información de todo el proyecto. El informe por tipo de requisito que se divide en 2, Funcional y NO Funcional. Este es igual al informe General solo que la información esta filtrada por tipo de requisito<br/></p><p id="d1c74c5d-58c1-4a98-8590-a4c55374ae6c" class="">
+</p><figure id="e8d0a94a-f754-43c0-a98e-bfd5fd14b20c" class="image"><a href="Untitled%2045.png"><img style="width:589px" src="Untitled%2045.png"/></a></figure><p id="7eade2ee-6501-4229-8ea9-fd68d0f97903" class="">
+</p><p id="dc6c15c2-0e71-4f5f-895a-8b5e36903494" class="">Informe 2. Dentro de este informe tiene el mismo formato que el informe de distribución de error. Pues se tienen 3 informes. Uno general y otros 2 por tipo de requisito</p><p id="7a336481-a0ea-4e77-91e7-b7902f321e8f" class="">
+</p><figure id="0d64446c-3946-42e0-8603-c37f60003505" class="image"><a href="Untitled%2046.png"><img style="width:589px" src="Untitled%2046.png"/></a></figure><figure id="26d33d05-315e-4494-a20d-302a067728e7" class="image"><a href="Untitled%2047.png"><img style="width:589px" src="Untitled%2047.png"/></a></figure><p id="dd6b4334-8621-4d8c-9121-26150b405800" class="">
+</p><p id="43917e2f-3af7-4c71-859e-a17d562863d5" class=""><mark class="highlight-teal">Contenido informe 1.</mark></p><figure id="429de122-b2e0-40f2-99d0-6e9670f56675" class="image"><a href="Untitled%2048.png"><img style="width:589px" src="Untitled%2048.png"/></a></figure><p id="7cf85982-c722-4bb5-bbc1-eafbb4d3907b" class="">
+</p><p id="444bc157-8b75-4f02-b9f8-f7610766bdb8" class="">En el informe uno se realizará la explicación para todos los requisitos, esto aplica de igual manera para los filtros de tipo de requisito</p><p id="a3091b71-5fc1-4ed3-bf93-e3fa1b507083" class="">
+</p><figure id="d5d9e3b5-8549-405f-875b-12321ee0cffd" class="image"><a href="Untitled%2049.png"><img style="width:589px" src="Untitled%2049.png"/></a></figure><p id="6e412c1b-090d-4b4f-995a-4c5ecbf6476e" class="">
+</p><p id="f1585d1f-4004-4aff-b215-e5a8e2db9f4d" class="">En este informe se muestra cuantas características fueron evaluadas según su tipo y su nota. Para el ejemplo el proyecto tiene 5 requisitos y solo 1 de estos requisitos en su característica trazable fue calificado por debajo de 8.</p><p id="3474c39b-f9d5-4550-a66d-8abcf4b73143" class="">
+</p><figure id="5115fb66-7784-4c97-85f4-3a53209a440e" class="image"><a href="Untitled%2050.png"><img style="width:589px" src="Untitled%2050.png"/></a></figure><p id="6a113e32-f89d-48af-aec5-f58d054b06a5" class="">
+</p><p id="b92babdf-3b30-45d6-bf2b-d082fe89e0d5" class="">En este informe se muestra el total de distribución de error para todos los requisitos, para el ejemplo como solo se tiene una característica con error y está en su momento de calificación solo fue seleccionada la causa de error VAR</p><p id="3b3e1106-8825-4b2f-aaa9-82612f145ce8" class="">
+</p><figure id="6b035105-bea3-4137-b16d-1924d10922e6" class="image"><a href="Untitled%2051.png"><img style="width:589px" src="Untitled%2051.png"/></a></figure><p id="2adf7225-4d11-4019-9b50-a83b97a2948f" class="">En este informe se muestra el total de características con error en base a su tipología, para este la característica NO Trazable hace parte del error EIE</p><p id="5d7a8185-2ba7-4f32-804e-49eb0d01bfe8" class="">
+</p><figure id="73404b22-2e54-4cd0-ada1-0a90bb66c6e8" class="image"><a href="Untitled%2052.png"><img style="width:589px" src="Untitled%2052.png"/></a></figure><p id="126fca19-4116-43e4-b38c-ff270f024960" class="">
+</p><p id="76036a1d-0dca-40dd-ace5-37afb9b29a90" class="">En estos 2 informes se realiza bajo la misma metodología separados por tipología EIE/ MCC. Para este caso especifica lo mismo de la segunda grafica, pero separado por tipología.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

@@ -1,0 +1,706 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Reporte sonarQube</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1cf617e9-a4b3-44c7-b089-fa5cf7d8d646" class="page sans"><header><img class="page-cover-image" src="data:image/png;base64,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" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/3029/3029337.png"/></div><h1 class="page-title">Reporte sonarQube</h1><p class="page-description"></p></header><div class="page-body"><p id="ebe60aa2-7c0a-4e41-9a8b-f75fef99248d" class="">
+</p><h3 id="cd858a62-7df6-4e24-acd1-f2dbf812f135" class="block-color-blue">Requisitos</h3><ol type="1" id="63ee9045-8bb5-43c1-89a2-1ee0d656a10e" class="numbered-list" start="1"><li>Java: 11.0.16.1</li></ol><ol type="1" id="7be4ad21-964e-4e81-8fd1-e16dfcfd556a" class="numbered-list" start="2"><li>Maven: apache-maven-3.9.6</li></ol><ol type="1" id="a6f94b17-58db-44ef-8764-42687c38738b" class="numbered-list" start="3"><li>Sonarque instalado versión 10.3.0.82913</li></ol><p id="4d56f05c-ee27-44e6-ab3b-d4c32938f390" class="">
+</p><p id="fe863fb7-8d26-4072-9b56-4f63d8f9b7b6" class="">Para la instalación del sonar se tuvo en cuenta la siguiente guía y documentación:<div class="indented"><p id="c1cb03ee-a516-432d-b464-9e13a9023e45" class=""><a href="http://blog.hadsonpar.com/2023/01/configuracion-y-ejecucion-de-sonarqube.html">http://blog.hadsonpar.com/2023/01/configuracion-y-ejecucion-de-sonarqube.html</a></p><p id="ce666fa6-0201-4c66-85a2-e0c5416fdb29" class=""><a href="https://www.youtube.com/watch?v=dy8-eNcJUPw">https://www.youtube.com/watch?v=dy8-eNcJUPw</a></p><p id="4bb56456-025b-4a6e-a0fe-ec570adaafb7" class="">
+</p><p id="229bfb47-b83b-41b6-ad1b-5354b4fe7ad7" class="">
+</p></div></p><p id="a791cc9c-0e6b-4796-9ea9-c702efa53217" class="">Una vez instalado el sonar, se pone en marcha en la maquina local donde se tiene el proyecto a analizar. Se prosigue con la ruta donde se instaló el sonar y posteriormente al archivo <code><a href="http://sonar.sh/">sonar.sh</a></code></p><figure id="adfda5b0-f03c-48fe-b850-abb4d31464fc" class="image"><a href="Untitled%2085.png"><img style="width:921px" src="Untitled%2085.png"/></a></figure><p id="0903fc9e-3492-4b37-b897-e7efd5a26294" class="">
+</p><p id="9157eb92-6c96-406c-aa39-eac2b0847e29" class="">
+</p><p id="bf0e0a99-0439-46e4-ba06-f24603e2f160" class="">Para verificar que este trabajando de la forma adecuada debe salir una imagen como la siguiente:</p><figure id="aab4fc42-bb4b-47f2-a7b9-896969076a97" class="image"><a href="Untitled%2086.png"><img style="width:921px" src="Untitled%2086.png"/></a></figure><p id="53ca20e0-3982-4ec0-b9e8-22f09e2065e4" class="">
+</p><p id="f214033e-6d72-402f-a1f3-107e0ac4356b" class="">Como el programa está configurado para correr en local, se debe abrir por el siguiente puerto:<div class="indented"><p id="518a5c18-bfea-4a84-a85b-48dc2f699445" class=""><a href="http://localhost:9000/projects">http://localhost:9000/projects</a></p><p id="7cf08243-c3d2-4cbd-9eac-6621c12f99a8" class="">
+</p></div></p><p id="b8e3ffb1-9f53-408f-9988-b4885e233010" class="">Posteriormente se debe de ir a generar el token para ejecutarlo en la maquina local, siguiendo los siguientes pasos:<div class="indented"><ol type="1" id="358f830f-5608-4e2a-b833-d03014262259" class="numbered-list" start="1"><li>En la parte de inicio ir a la pestaña que dice projects /Create Project /Local Project: <figure id="427f57c3-a2d4-4b94-9dcf-280cbeaddd1a" class="image"><a href="Untitled%2087.png"><img style="width:921px" src="Untitled%2087.png"/></a></figure></li></ol></div></p><p id="53c88f20-40cb-4691-ab0f-117bba8a32fc" class=""><div class="indented"><ol type="1" id="d2a369c6-c5a8-45fc-b1fb-ebe5593617cd" class="numbered-list" start="2"><li>Se diligencia la información según corresponda, y luego le damos click en next:<figure id="7894ec26-fc93-45d9-9715-84b832d8c4bc" class="image"><a href="Untitled%2088.png"><img style="width:672px" src="Untitled%2088.png"/></a></figure></li></ol></div></p><p id="52310356-2035-4f68-a5b4-38363293ec38" class=""><div class="indented"><ol type="1" id="20719957-3815-42c2-b047-5afa54ec3d81" class="numbered-list" start="3"><li>Seleccionamos la opción use the global settings, y luego en create project:<figure id="5b8cb235-a200-40ca-8257-fb817cc2a27e" class="image"><a href="Untitled%2089.png"><img style="width:921px" src="Untitled%2089.png"/></a></figure></li></ol></div></p><p id="d1c3150b-94d6-4609-8531-1480d872c71c" class=""><div class="indented"><p id="5e497f6b-83ff-4eab-a091-18253aff2cad" class="">Nos dirige a la parte de método para análisis y se genera de forma local, de la siguiente manera:<div class="indented"><figure id="0556920b-ee90-432f-ad90-2404beae6765" class="image"><a href="Untitled%2090.png"><img style="width:921px" src="Untitled%2090.png"/></a></figure></div></p></div></p><p id="822191f3-bafe-4467-a691-74c7ad3bff0d" class=""><div class="indented"><p id="d60ce5b6-4368-423b-a308-a596778ca0b0" class="">Al generar un token, se sugiere no ponerle expiración. Luego se da clic en generate y continuar:<div class="indented"><figure id="00ea50f5-739b-4133-8a7c-7345c1d72964" class="image"><a href="Untitled%2091.png"><img style="width:921px" src="Untitled%2091.png"/></a></figure></div></p><p id="03a7cfd6-4a0c-4dd0-bed2-709e09951f00" class="">
+</p></div></p><p id="59383ecd-10bc-4aae-95b7-078f1cdf7416" class="">Inmediatamente sale la forma en cómo va a correr el proyecto. Para nuestro caso seleccionamos la opción de Maven y se copia todo el comando que aparece, se deben eliminar las barras invertidas y ser prudente para que solo quede un espacio entre los comandos. Se recomienda primero pegarlo en un bloc de notas y luego adaptarlo:<div class="indented"><figure id="e2c57fc4-da15-46d0-9d98-f90a873db50c" class="image"><a href="Untitled%2092.png"><img style="width:921px" src="Untitled%2092.png"/></a></figure><p id="04ef8fbd-5a58-4372-af7c-f441101ae47c" class="">
+</p><p id="a0629e33-b4b5-4f69-bf45-c52f424ba615" class="">Se puede visualizar la documentación oficial en el siguiente link:</p><p id="0c55abd8-3d56-40cf-8861-997a564314c4" class=""><a href="https://docs.sonarsource.com/sonarqube/10.3/analyzing-source-code/scanners/sonarscanner-for-maven/">https://docs.sonarsource.com/sonarqube/10.3/analyzing-source-code/scanners/sonarscanner-for-maven/</a></p><p id="1207e671-8451-4018-99f0-bb7670ff926f" class="">
+</p><p id="b70392d3-0f80-4587-8289-90c5e8d9bf8d" class="">Luego de tener el comando copiado tal y como indica el paso anterior, nos dirigimos a la ubicación de la carpeta donde se encuentra el proyecto, y abrimos una consola cmd y allí copiamos dicho comando:</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8da793cc-45f4-435f-a341-58275d26c900" class="code"><code class="language-Bash">mvn clean verify sonar:sonar -Dsonar.projectKey=prueba -Dsonar.projectName=&#x27;SQA-SQC&#x27; -Dsonar.host.url=http://localhost:9000 -Dsonar.token=sqp_9ba55285f674ee355938701ede7dab4f1be3a384</code></pre><p id="4093d5f4-c8b6-4c7b-a842-83d23b5ac3bd" class="">
+</p><p id="db7e76f0-31e1-43b1-944f-14c37f259a76" class="">Posteriormente se le da enter.</p><p id="972bab3d-14c6-49ed-a74a-4e7891202509" class=""><br/>En este punto sonar empieza a hacer todo el análisis estático de código y de cobertura, como se evidencia en las siguientes imágenes:<br/></p><figure id="b702a645-9ff1-4409-b6b3-7ca2ebf70064" class="image"><a href="Untitled%2093.png"><img style="width:921px" src="Untitled%2093.png"/></a></figure><figure id="2787c40d-b92f-47ce-a588-ad55fd45a6de" class="image"><a href="Untitled%2094.png"><img style="width:921px" src="Untitled%2094.png"/></a></figure><p id="d2119b58-1240-431c-90fa-9f66d6668251" class="">
+</p><p id="42a0e072-5ed6-4fda-9408-abb897065418" class="">Si la pantalla no muestra que la construcción fue exitosa y se esta evidenciando algún fallo, se debe corregir el fallo para poder continuar.</p><p id="c0f7c6ce-44b4-437e-94e9-286decd1787d" class="">
+</p><figure id="1c900764-0e35-4b88-b20f-4ad0c062733c" class="image"><a href="Untitled%2095.png"><img style="width:921px" src="Untitled%2095.png"/></a></figure><p id="201908b6-3cf7-4982-9db4-9818ea45eea5" class="">
+</p><p id="534a47ce-4e95-438e-8c97-d11f7e6c3e24" class="">Una vez teniendo el proyecto construido de forma exitosa, se debe dirigir a la URL inicial, <code>localhost:9000/projects</code> para revisar el análisis de código del proyecto y evidenciándolo de la siguiente forma:</p><figure id="cb2add9f-30a8-451a-b86f-f363173181ff" class="image"><a href="Untitled%2096.png"><img style="width:921px" src="Untitled%2096.png"/></a></figure><p id="be95f8be-86b9-4e68-8e2a-14f119392b7c" class="">
+</p><p id="1b32b1af-e179-4d50-b388-708329f2624a" class="">En la imagen anterior se evidencia un continuos integrations pass y se observa cada uno de los análisis propuestos por la herramienta, para este caso se tienen 9 code smells que se pueden observar más adelante como se puede solucionar:</p><p id="807dda51-7ee4-4cbc-8483-d00721556c20" class=""><br/>Al entrar al proyecto se puede realizar a profundidad su análisis:<br/></p><figure id="4395f3a2-2c4e-433c-be3e-9ad1505d1ba8" class="image"><a href="Untitled%2097.png"><img style="width:921px" src="Untitled%2097.png"/></a><figcaption>En la siguiente imagen se puede observar el reporte de los 9 code smells (Detalles del reporte)</figcaption></figure><p id="14ac3800-6ac6-46f6-aee8-d26f82ba90c8" class="">
+</p><figure id="a905088a-86c8-4dc2-895f-590eab2c62f8" class="image"><a href="Untitled%2098.png"><img style="width:921px" src="Untitled%2098.png"/></a></figure><p id="36460e3f-421c-48d6-abae-2b56a925877b" class="">
+</p><ol type="1" id="7dbd1e22-9350-41ae-8fef-4eb7b9ed50dd" class="numbered-list" start="1"><li>Como se encuentra el error y puede tener los siguientes estados:<figure id="c2ac9536-7106-4b6a-ac4f-b6e73ceca26d" class="image"><a href="Untitled%2099.png"><img style="width:442px" src="Untitled%2099.png"/></a></figure><p id="f0659630-c88c-4da0-9793-cdc890d8a64d" class="">
+</p></li></ol><ol type="1" id="d12092e8-3caa-4f3e-855a-3b0152761239" class="numbered-list" start="2"><li> Si ha sido asignado a algún integrante del equipo su solución, como se está ejecutando en local, solo tiene asignaciones para el administrador.<br/><br/></li></ol><ol type="1" id="2a49f7f9-b74f-4a74-80cd-00deaf446214" class="numbered-list" start="3"><li>Tipo de error que evidencia la herramienta:<figure id="e62fe9ed-1b9f-4914-b41f-f61eb11be0ad" class="image"><a href="Untitled%20100.png"><img style="width:539px" src="Untitled%20100.png"/></a></figure><p id="ab1ba938-200b-464e-93f0-7e2266a5b287" class="">
+</p></li></ol><ol type="1" id="145df8fc-1f29-444a-b93a-ffa8d0bbf76d" class="numbered-list" start="4"><li>Que tipo de falla es y que representa:<figure id="b1a3e3b5-db2b-4b42-8d8f-7a36f35cc6ba" class="image"><a href="Untitled%20101.png"><img style="width:506px" src="Untitled%20101.png"/></a></figure><p id="84619871-199d-4a1e-89e9-100c1074df01" class="">
+</p></li></ol><ol type="1" id="75f6c725-973a-4047-8ec2-e7c2e3dcae1e" class="numbered-list" start="5"><li>Cual es su estado:<figure id="31d0bea1-cd09-4a4c-ad67-5f63ba110d7d" class="image"><a href="Untitled%20102.png"><img style="width:547px" src="Untitled%20102.png"/></a></figure><p id="9532f6c0-1518-4418-addb-24372612b18c" class="">
+</p></li></ol><ol type="1" id="33f2b73c-c951-4a2d-875c-233ac9d791f1" class="numbered-list" start="6"><li>Cuanto tiempo tarda en solucionarlo<figure id="534a565b-1f76-4c5f-90eb-642b3c1131d5" class="image"><a href="Untitled%20103.png"><img style="width:184px" src="Untitled%20103.png"/></a></figure><p id="8ed80c40-38d9-457c-bbe3-fc4a8e097014" class="">
+</p><p id="e995c862-4c41-4e6e-82c3-c72b58c80625" class="">
+</p></li></ol></div></p><p id="e63d72f8-a13d-4319-b86d-52a6b6412c5d" class="">Estos pasos se deben realizar con cada uno de los 9 code smell que salieron y mirar cual es la solución que propone esta herramienta. Se debe realizar y volver a ejecutar el comando para que genere nuevamente el reporte:</p><figure id="783b3551-6635-4315-9595-d4b88aba99d5" class="image"><a href="Untitled%20104.png"><img style="width:921px" src="Untitled%20104.png"/></a></figure><p id="bfc47ff3-db9f-4fa7-9145-5df0bef16632" class="">
+</p><p id="10dad208-91c0-4de3-9a24-4b9245b8fc5b" class="">Como se puede observar los 9 code smells fueron corregidos de forma correcta según recomendaciones de sonarQube.</p><p id="9b91199b-95f0-489a-b038-b8ac88612571" class="">
+</p><h3 id="b9fda1f1-9f3c-4487-a870-6acc8be5a2f9" class="block-color-blue">Security review</h3><p id="04410766-7eaa-423f-a059-894aa61f73d8" class="">También es un reporte como el que se observo anteriormente con los code smells y cuando se procede a revisar se evidencia lo siguiente:</p><figure id="e62c1fe5-a821-4a9d-9e3e-bb202ebe5dc6" class="image"><a href="Untitled%20105.png"><img style="width:921px" src="Untitled%20105.png"/></a></figure><p id="4ae120c6-5b3e-47df-8d4e-e0950b6f30d1" class="">
+</p><p id="8e133e74-4614-4d29-8abe-9cc80d0360d8" class="">Se ingresa a uno de ellos para conocer el detalle puntualmente:</p><figure id="3b827bad-6ff9-441d-9e8e-f8ec0b7e8b57" class="image"><a href="Untitled%20106.png"><img style="width:921px" src="Untitled%20106.png"/></a></figure><p id="a3a43ac7-9c22-43ec-b27a-8b2ba0167fde" class="">
+</p><p id="5f745233-9ed1-4eb3-a3e7-8bed716f0d9e" class="">Y se debe solucionar según las sugerencias para que el reporte salga en 0.0 y en estado A.  </p><p id="d0c3e134-2e8f-4922-b0cb-db7623d622dd" class="">También nos muestra la prioridad de cada uno de los errores:</p><figure id="2e6cf752-86b9-4105-883d-601d1466d3c0" class="image"><a href="Untitled%20107.png"><img style="width:921px" src="Untitled%20107.png"/></a></figure><p id="cbb6470e-b2ef-418f-87f5-77e5fea7d5b0" class="">
+</p><p id="43eaab07-91a7-4383-9c8c-4b159f56253f" class="">Luego de solucionar los 2 puntos que mostraron reporte en la aplicación, se evidencia de la siguiente forma:</p><figure id="2a7ba1e1-87b3-42c6-8fc0-b8701dec535e" class="image"><a href="Untitled%20108.png"><img style="width:921px" src="Untitled%20108.png"/></a></figure><p id="e6f5df2c-f10f-4d84-b883-f97ef3172737" class="">
+</p><p id="e5baa1aa-a003-4aa6-bf37-d0b5b8aee46e" class="">Sonar también permite ver el histórico de los errores según el análisis:</p><figure id="9b07999f-53f1-48e1-bc22-8a360641eef4" class="image"><a href="Untitled%20109.png"><img style="width:921px" src="Untitled%20109.png"/></a></figure><figure id="c0ab7fa3-9be4-4157-8109-73b637a80a49" class="image"><a href="Untitled%20110.png"><img style="width:921px" src="Untitled%20110.png"/></a></figure></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
